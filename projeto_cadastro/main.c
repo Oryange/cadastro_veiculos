@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-//montando estrutura:
 struct carro
 {
   int cod;
@@ -11,13 +10,11 @@ struct carro
   int ano;
   char placa[8];
 };
-//definindo esta estrutura tem o nome carro - e não struct carro:
 typedef struct carro carro;
 const unsigned int TAMANHO_CADASTRO = 10;
 unsigned int CARROS_CADASTRADOS = 0;
 carro cadastro[10];
-//unsigned significa: numeros maiores ou iguais a 0;
-//void nao retorna nada - só chama;
+
 void limpaCadastro()
 {
   for (unsigned int i = 0; i < TAMANHO_CADASTRO; i++)
@@ -46,7 +43,6 @@ int menu()
     printf("|5 - SAIR                                 |\n");
     printf("|---------------------------------------- |\n");
     printf("\n\n INFORME SUA OPÇÃO: ");
-    // & torna a variável um ponteiro;
     scanf("%d", &opcao);
     if (opcao > 5 || opcao < 0)
     {
@@ -59,8 +55,6 @@ int menu()
 
 void salvarCadastro() {
   FILE *arquivo;
-    // a é append e o + cria do zero;
-    // w deleta o que ja tem e cria um arquivo novo;
   arquivo = fopen ("CADASTRO.txt", "w+");
   for(int i=0; i<CARROS_CADASTRADOS; i++) {
     fprintf(arquivo, "Marca: %s \n",cadastro[i].marca);
@@ -164,7 +158,6 @@ void pesquisaAno()
     printf("\n NÃO FOI ENCONTRADO O ANO %d \n\n", anoPesquisa);
   }
 }
-// inteiro que diz quantos argumentos vem da linha de comendo.
 int main(int argc, char **argv)
 {
   limpaCadastro();
